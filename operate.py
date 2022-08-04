@@ -8,11 +8,16 @@
 import sqlite3
 
 def addserverviapwd(ip, username, password, port):
+    # Format the data
+    ip = str(ip)
+    username = str(username)
+    password = str(password)
+    port = int(port)
     # Connect database
     conn = sqlite3.connect('frSSH.db')
     c = conn.cursor()
     # Add server
-    c.execute("INSERT INTO servers (ip, username, password, port) VALUES ('?', '?', '?', ?)", (ip, username, password, port))
+    c.execute("INSERT INTO servers (ip, username, password, port) VALUES (?, ?, ?, ?)", (ip, username, password, port))
     # Commit changes
     conn.commit()
     # Close connection
@@ -20,11 +25,16 @@ def addserverviapwd(ip, username, password, port):
     return True
 
 def addserverviakey(ip, username, port, keyid):
+    # Format the data
+    ip = str(ip)
+    username = str(username)
+    port = int(port)
+    keyid = int(keyid)
     # Connect database
     conn = sqlite3.connect('frSSH.db')
     c = conn.cursor()
     # Add server
-    c.execute("INSERT INTO servers (ip, username, keyid, port) VALUES ('?', '?', ?, ?)", (ip, username, keyid, port))
+    c.execute("INSERT INTO servers (ip, username, keyid, port) VALUES (?, ?, ?, ?)", (ip, username, keyid, port))
     # Commit changes
     conn.commit()
     # Close connection

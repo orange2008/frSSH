@@ -21,9 +21,10 @@ def init_db():
         # Table already exists
         pass
     try:
-        # Create a table with the name "keys" with an ID
+        # Create a table with the name "keys" with an ID and a description.
         c.execute("""CREATE TABLE keys (
             id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+            description TEXT NOT NULL,
             key TEXT NOT NULL
             )""")
     except sqlite3.OperationalError:
