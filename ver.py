@@ -4,7 +4,7 @@
 
 # ONLY DEVELOPER CAN CHANGE THIS!!!!!
 version = '1.0.0'
-release = False
+release = False # If this is enabled, then a 'beta' will be applied
 
 def version():
     if release:
